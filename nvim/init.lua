@@ -1,1 +1,2 @@
-require("abcode")
+require("andy.core")
+require("andy.lazy")

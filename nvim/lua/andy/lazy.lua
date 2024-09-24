@@ -9,13 +9,15 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-
 vim.opt.rtp:prepend(lazypath)
 
-local opts = {} -- your options for lazy.nvim here
-require("lazy").setup({{import="abcode.plugins"}, {import="abcode.plugins.lsp"}},{
-	checker = {
-		enabled = true,
-		notify = false,
-	}
+require("lazy").setup({ { import = "andy.plugins"}, {import = "andy.plugins.lsp" } },{
+--require("lazy").setup("andy.plugins", {
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
 })
