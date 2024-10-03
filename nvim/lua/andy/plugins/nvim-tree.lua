@@ -35,8 +35,8 @@ return {
           window_picker = {
             enable = false,
           },
+    },
         },
-      },
       filters = {
         custom = { ".DS_Store" },
       },

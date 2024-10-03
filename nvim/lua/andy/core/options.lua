@@ -32,3 +32,10 @@ opt.clipboard:append("unnamedplus")
 --splitting
 opt.splitright = true
 opt.splitbelow = true
+
+--better indentation
+vim.keymap.set("v", "<", "<gv", opts)
+vim.keymap.set("v", ">", ">gv", opts)
+
+-- keep last yanked when pasting
+vim.keymap.set("v", "p", '"_dP', opts)
