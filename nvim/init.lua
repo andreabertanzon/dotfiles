@@ -526,8 +526,6 @@ require("lazy").setup({
 			vim.cmd([[colorscheme catppuccin]])
 		end,
 	},
-	{ "nvim-tree/nvim-web-devicons" },
-
 	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies = "nvim-tree/nvim-web-devicons",
@@ -619,7 +617,7 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 
 			-- Useful for getting pretty icons, but requires a Nerd Font.
-			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+			{ "nvim-tree/nvim-web-devicons", enabled = true }, --vim.g.have_nerd_font },
 		},
 		config = function()
 			-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -1013,12 +1011,12 @@ require("lazy").setup({
 					-- `friendly-snippets` contains a variety of premade snippets.
 					--    See the README about individual language/framework/plugin snippets:
 					--    https://github.com/rafamadriz/friendly-snippets
-					-- {
-					--   'rafamadriz/friendly-snippets',
-					--   config = function()
-					--     require('luasnip.loaders.from_vscode').lazy_load()
-					--   end,
-					-- },
+					{
+						"rafamadriz/friendly-snippets",
+						config = function()
+							require("luasnip.loaders.from_vscode").lazy_load()
+						end,
+					},
 				},
 			},
 			"saadparwaiz1/cmp_luasnip",
@@ -1060,7 +1058,8 @@ require("lazy").setup({
 					-- Accept ([y]es) the completion.
 					--  This will auto-import if your LSP supports it.
 					--  This will expand snippets if the LSP sent a snippet.
-					["<C-y>"] = cmp.mapping.confirm({ select = true }),
+					--["<C-y>"] = cmp.mapping.confirm({ select = true }),
+					["<C-CR>"] = cmp.mapping.confirm({ select = false }),
 
 					-- If you prefer more traditional completion keymaps,
 					-- you can uncomment the following lines
@@ -1101,8 +1100,8 @@ require("lazy").setup({
 						-- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
 						group_index = 0,
 					},
-					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "nvim_lsp" },
 					{ name = "path" },
 				},
 			})
